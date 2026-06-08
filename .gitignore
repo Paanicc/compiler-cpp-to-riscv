@@ -1,0 +1,16 @@
+# Compiled output files
+*.int
+*.symb
+*.asm
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd

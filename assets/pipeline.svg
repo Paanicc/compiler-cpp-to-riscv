@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 220" width="100%" height="220" style="background: transparent;">
+  <style>
+    @keyframes pulse {
+      0%, 100% { filter: drop-shadow(0 0 2px rgba(100, 108, 255, 0.4)); stroke: #3a3f58; }
+      50% { filter: drop-shadow(0 0 10px rgba(100, 108, 255, 0.8)); stroke: #646cff; }
+    }
+    @keyframes glow-green {
+      0%, 100% { filter: drop-shadow(0 0 2px rgba(66, 184, 131, 0.4)); stroke: #3a3f58; }
+      50% { filter: drop-shadow(0 0 10px rgba(66, 184, 131, 0.8)); stroke: #42b883; }
+    }
+    @keyframes glow-amber {
+      0%, 100% { filter: drop-shadow(0 0 2px rgba(255, 186, 8, 0.4)); stroke: #3a3f58; }
+      50% { filter: drop-shadow(0 0 10px rgba(255, 186, 8, 0.8)); stroke: #ffba08; }
+    }
+    @keyframes glow-pink {
+      0%, 100% { filter: drop-shadow(0 0 2px rgba(255, 0, 127, 0.4)); stroke: #3a3f58; }
+      50% { filter: drop-shadow(0 0 10px rgba(255, 0, 127, 0.8)); stroke: #ff007f; }
+    }
+    .box {
+      fill: #0d1117;
+      stroke-width: 2;
+      rx: 12;
+      transition: all 0.3s ease;
+    }
+    .box-blue { animation: pulse 3s infinite ease-in-out; }
+    .box-green { animation: glow-green 3s infinite ease-in-out; }
+    .box-amber { animation: glow-amber 3s infinite ease-in-out; }
+    .box-pink { animation: glow-pink 3s infinite ease-in-out; }
+    
+    .box:hover {
+      fill: #161b22;
+      cursor: pointer;
+    }
+    .text {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      fill: #8b949e;
+      font-size: 13px;
+      text-anchor: middle;
+      dominant-baseline: middle;
+    }
+    .title {
+      font-weight: 600;
+      fill: #f0f6fc;
+      font-size: 14px;
+    }
+    .arrow {
+      stroke: #30363d;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      fill: none;
+    }
+    .arrow-glow {
+      stroke: #38bdf8;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      fill: none;
+      opacity: 0.3;
+    }
+    .flowing-dot {
+      filter: drop-shadow(0 0 4px currentColor);
+    }
+  </style>
+  
+  <defs>
+    <marker id="arrowhead-blue" markerWidth="8" markerHeight="6" refX="5" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#58a6ff"/>
+    </marker>
+    <marker id="arrowhead-green" markerWidth="8" markerHeight="6" refX="5" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#42b883"/>
+    </marker>
+    <marker id="arrowhead-amber" markerWidth="8" markerHeight="6" refX="5" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#ffba08"/>
+    </marker>
+  </defs>
+
+  <!-- Step 1: Source File -->
+  <g>
+    <rect x="20" y="55" width="140" height="95" class="box box-blue" />
+    <text x="90" y="85" class="text title" fill="#58a6ff">1. Source File</text>
+    <text x="90" y="110" class="text">Custom C++</text>
+    <text x="90" y="128" class="text" fill="#ff7b72" font-family="monospace">test.c++</text>
+  </g>
+
+  <!-- Connection 1 -->
+  <path d="M 160 102.5 L 220 102.5" class="arrow" stroke="#30363d" />
+  <path d="M 160 102.5 L 220 102.5" class="arrow-glow" stroke="#58a6ff" marker-end="url(#arrowhead-blue)" />
+
+  <!-- Step 2: Lexer & Parser -->
+  <g>
+    <rect x="230" y="35" width="170" height="135" class="box box-green" />
+    <text x="315" y="65" class="text title" fill="#42b883">2. Front-End</text>
+    <text x="315" y="95" class="text">Lexical &amp; Syntactic</text>
+    <text x="315" y="115" class="text">Single-Pass Parser</text>
+    <text x="315" y="138" class="text" fill="#79c0ff" font-family="monospace">compiler.py</text>
+  </g>
+
+  <!-- Connection 2 -->
+  <path d="M 400 102.5 L 460 102.5" class="arrow" stroke="#30363d" />
+  <path d="M 400 102.5 L 460 102.5" class="arrow-glow" stroke="#42b883" marker-end="url(#arrowhead-green)" />
+
+  <!-- Step 3: Quad IR & Symb Table -->
+  <g>
+    <rect x="470" y="45" width="170" height="115" class="box box-amber" />
+    <text x="555" y="75" class="text title" fill="#ffba08">3. IR &amp; Analysis</text>
+    <text x="555" y="105" class="text" fill="#ff7b72" font-family="monospace">test.int (Quadruples)</text>
+    <text x="555" y="125" class="text" fill="#79c0ff" font-family="monospace">test.symb (Scopes)</text>
+  </g>
+
+  <!-- Connection 3 -->
+  <path d="M 640 102.5 L 700 102.5" class="arrow" stroke="#30363d" />
+  <path d="M 640 102.5 L 700 102.5" class="arrow-glow" stroke="#ffba08" marker-end="url(#arrowhead-amber)" />
+
+  <!-- Step 4: Code Generation (RISC-V) -->
+  <g>
+    <rect x="710" y="55" width="130" height="95" class="box box-pink" />
+    <text x="775" y="85" class="text title" fill="#ff007f">4. Back-End</text>
+    <text x="775" y="110" class="text">RISC-V Assembly</text>
+    <text x="775" y="128" class="text" fill="#ffba08" font-family="monospace">test.asm</text>
+  </g>
+
+  <!-- Flowing Dots -->
+  <circle r="4" fill="#58a6ff" class="flowing-dot">
+    <animateMotion dur="2s" repeatCount="indefinite" path="M 160 102.5 L 220 102.5" />
+  </circle>
+  <circle r="4" fill="#42b883" class="flowing-dot">
+    <animateMotion dur="2s" repeatCount="indefinite" path="M 400 102.5 L 460 102.5" />
+  </circle>
+  <circle r="4" fill="#ffba08" class="flowing-dot">
+    <animateMotion dur="2s" repeatCount="indefinite" path="M 640 102.5 L 700 102.5" />
+  </circle>
+</svg>
