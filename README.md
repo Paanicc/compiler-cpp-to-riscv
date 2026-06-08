@@ -1,5 +1,3 @@
-![C++ to RISC-V Compiler](./assets/compiler_banner.png)
-
 # 🚀 compiler-cpp-to-riscv
 
 [![Language](https://img.shields.io/badge/Language-Python%203-blue?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
@@ -418,9 +416,6 @@ Scope: test3 (nesting level: 0)
 
 ---
 
-## 🎨 Visual Identity & Artwork
+## 🎨 Repository Graphics
 
-The repository contains customized premium visual assets designed to provide a cohesive branding experience. 
-
-*   **Banner Graphic**: Located in [assets/compiler_banner.png](./assets/compiler_banner.png).
 *   **Interactive SVG Pipeline**: Located in [assets/pipeline.svg](./assets/pipeline.svg).

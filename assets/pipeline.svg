@@ -1,21 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 220" width="100%" height="220" style="background: transparent;">
   <style>
     @keyframes pulse {
-      0%, 100% { filter: drop-shadow(0 0 2px rgba(100, 108, 255, 0.4)); stroke: #3a3f58; }
-      50% { filter: drop-shadow(0 0 10px rgba(100, 108, 255, 0.8)); stroke: #646cff; }
+      0%, 100% { filter: drop-shadow(0 0 2px rgba(100, 108, 255, 0.3)); stroke: #3a3f58; }
+      50% { filter: drop-shadow(0 0 12px rgba(100, 108, 255, 0.8)); stroke: #646cff; }
     }
     @keyframes glow-green {
-      0%, 100% { filter: drop-shadow(0 0 2px rgba(66, 184, 131, 0.4)); stroke: #3a3f58; }
-      50% { filter: drop-shadow(0 0 10px rgba(66, 184, 131, 0.8)); stroke: #42b883; }
+      0%, 100% { filter: drop-shadow(0 0 2px rgba(66, 184, 131, 0.3)); stroke: #3a3f58; }
+      50% { filter: drop-shadow(0 0 12px rgba(66, 184, 131, 0.8)); stroke: #42b883; }
     }
     @keyframes glow-amber {
-      0%, 100% { filter: drop-shadow(0 0 2px rgba(255, 186, 8, 0.4)); stroke: #3a3f58; }
-      50% { filter: drop-shadow(0 0 10px rgba(255, 186, 8, 0.8)); stroke: #ffba08; }
+      0%, 100% { filter: drop-shadow(0 0 2px rgba(255, 186, 8, 0.3)); stroke: #3a3f58; }
+      50% { filter: drop-shadow(0 0 12px rgba(255, 186, 8, 0.8)); stroke: #ffba08; }
     }
     @keyframes glow-pink {
-      0%, 100% { filter: drop-shadow(0 0 2px rgba(255, 0, 127, 0.4)); stroke: #3a3f58; }
-      50% { filter: drop-shadow(0 0 10px rgba(255, 0, 127, 0.8)); stroke: #ff007f; }
+      0%, 100% { filter: drop-shadow(0 0 2px rgba(255, 0, 127, 0.3)); stroke: #3a3f58; }
+      50% { filter: drop-shadow(0 0 12px rgba(255, 0, 127, 0.8)); stroke: #ff007f; }
     }
+    @keyframes flow-stream {
+      to {
+        stroke-dashoffset: -20;
+      }
+    }
+    
     .box {
       fill: #0d1117;
       stroke-width: 2;
@@ -43,33 +49,45 @@
       fill: #f0f6fc;
       font-size: 14px;
     }
-    .arrow {
-      stroke: #30363d;
-      stroke-width: 2.5;
+    .arrow-bg {
+      stroke: #21262d;
+      stroke-width: 3;
       stroke-linecap: round;
       fill: none;
     }
-    .arrow-glow {
-      stroke: #38bdf8;
-      stroke-width: 2.5;
+    .arrow-stream {
+      stroke-width: 2;
       stroke-linecap: round;
+      stroke-dasharray: 4, 6;
       fill: none;
-      opacity: 0.3;
+      opacity: 0.6;
+    }
+    .stream-blue {
+      stroke: #58a6ff;
+      animation: flow-stream 1.5s linear infinite;
+    }
+    .stream-green {
+      stroke: #42b883;
+      animation: flow-stream 1.5s linear infinite;
+    }
+    .stream-amber {
+      stroke: #ffba08;
+      animation: flow-stream 1.5s linear infinite;
     }
     .flowing-dot {
-      filter: drop-shadow(0 0 4px currentColor);
+      filter: drop-shadow(0 0 3px currentColor);
     }
   </style>
   
   <defs>
-    <marker id="arrowhead-blue" markerWidth="8" markerHeight="6" refX="5" refY="3" orient="auto">
-      <polygon points="0 0, 8 3, 0 6" fill="#58a6ff"/>
+    <marker id="arrowhead-blue" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+      <polygon points="0 0, 6 3, 0 6" fill="#58a6ff"/>
     </marker>
-    <marker id="arrowhead-green" markerWidth="8" markerHeight="6" refX="5" refY="3" orient="auto">
-      <polygon points="0 0, 8 3, 0 6" fill="#42b883"/>
+    <marker id="arrowhead-green" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+      <polygon points="0 0, 6 3, 0 6" fill="#42b883"/>
     </marker>
-    <marker id="arrowhead-amber" markerWidth="8" markerHeight="6" refX="5" refY="3" orient="auto">
-      <polygon points="0 0, 8 3, 0 6" fill="#ffba08"/>
+    <marker id="arrowhead-amber" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+      <polygon points="0 0, 6 3, 0 6" fill="#ffba08"/>
     </marker>
   </defs>
 
@@ -82,8 +100,8 @@
   </g>
 
   <!-- Connection 1 -->
-  <path d="M 160 102.5 L 220 102.5" class="arrow" stroke="#30363d" />
-  <path d="M 160 102.5 L 220 102.5" class="arrow-glow" stroke="#58a6ff" marker-end="url(#arrowhead-blue)" />
+  <path d="M 160 102.5 L 220 102.5" class="arrow-bg" />
+  <path d="M 160 102.5 L 220 102.5" class="arrow-stream stream-blue" marker-end="url(#arrowhead-blue)" />
 
   <!-- Step 2: Lexer & Parser -->
   <g>
@@ -95,8 +113,8 @@
   </g>
 
   <!-- Connection 2 -->
-  <path d="M 400 102.5 L 460 102.5" class="arrow" stroke="#30363d" />
-  <path d="M 400 102.5 L 460 102.5" class="arrow-glow" stroke="#42b883" marker-end="url(#arrowhead-green)" />
+  <path d="M 400 102.5 L 460 102.5" class="arrow-bg" />
+  <path d="M 400 102.5 L 460 102.5" class="arrow-stream stream-green" marker-end="url(#arrowhead-green)" />
 
   <!-- Step 3: Quad IR & Symb Table -->
   <g>
@@ -107,8 +125,8 @@
   </g>
 
   <!-- Connection 3 -->
-  <path d="M 640 102.5 L 700 102.5" class="arrow" stroke="#30363d" />
-  <path d="M 640 102.5 L 700 102.5" class="arrow-glow" stroke="#ffba08" marker-end="url(#arrowhead-amber)" />
+  <path d="M 640 102.5 L 700 102.5" class="arrow-bg" />
+  <path d="M 640 102.5 L 700 102.5" class="arrow-stream stream-amber" marker-end="url(#arrowhead-amber)" />
 
   <!-- Step 4: Code Generation (RISC-V) -->
   <g>
@@ -118,14 +136,36 @@
     <text x="775" y="128" class="text" fill="#ffba08" font-family="monospace">test.asm</text>
   </g>
 
-  <!-- Flowing Dots -->
-  <circle r="4" fill="#58a6ff" class="flowing-dot">
-    <animateMotion dur="2s" repeatCount="indefinite" path="M 160 102.5 L 220 102.5" />
+  <!-- Flowing Dots (Path 1) -->
+  <circle r="3" fill="#58a6ff" class="flowing-dot">
+    <animateMotion dur="1.8s" repeatCount="indefinite" path="M 160 102.5 L 220 102.5" begin="0s" />
   </circle>
-  <circle r="4" fill="#42b883" class="flowing-dot">
-    <animateMotion dur="2s" repeatCount="indefinite" path="M 400 102.5 L 460 102.5" />
+  <circle r="3" fill="#58a6ff" class="flowing-dot">
+    <animateMotion dur="1.8s" repeatCount="indefinite" path="M 160 102.5 L 220 102.5" begin="0.6s" />
   </circle>
-  <circle r="4" fill="#ffba08" class="flowing-dot">
-    <animateMotion dur="2s" repeatCount="indefinite" path="M 640 102.5 L 700 102.5" />
+  <circle r="3" fill="#58a6ff" class="flowing-dot">
+    <animateMotion dur="1.8s" repeatCount="indefinite" path="M 160 102.5 L 220 102.5" begin="1.2s" />
+  </circle>
+
+  <!-- Flowing Dots (Path 2) -->
+  <circle r="3" fill="#42b883" class="flowing-dot">
+    <animateMotion dur="1.8s" repeatCount="indefinite" path="M 400 102.5 L 460 102.5" begin="0.2s" />
+  </circle>
+  <circle r="3" fill="#42b883" class="flowing-dot">
+    <animateMotion dur="1.8s" repeatCount="indefinite" path="M 400 102.5 L 460 102.5" begin="0.8s" />
+  </circle>
+  <circle r="3" fill="#42b883" class="flowing-dot">
+    <animateMotion dur="1.8s" repeatCount="indefinite" path="M 400 102.5 L 460 102.5" begin="1.4s" />
+  </circle>
+
+  <!-- Flowing Dots (Path 3) -->
+  <circle r="3" fill="#ffba08" class="flowing-dot">
+    <animateMotion dur="1.8s" repeatCount="indefinite" path="M 640 102.5 L 700 102.5" begin="0.4s" />
+  </circle>
+  <circle r="3" fill="#ffba08" class="flowing-dot">
+    <animateMotion dur="1.8s" repeatCount="indefinite" path="M 640 102.5 L 700 102.5" begin="1.0s" />
+  </circle>
+  <circle r="3" fill="#ffba08" class="flowing-dot">
+    <animateMotion dur="1.8s" repeatCount="indefinite" path="M 640 102.5 L 700 102.5" begin="1.6s" />
   </circle>
 </svg>
