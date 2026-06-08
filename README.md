@@ -419,3 +419,10 @@ Scope: test3 (nesting level: 0)
 ## 🎨 Repository Graphics
 
 *   **Interactive SVG Pipeline**: Located in [assets/pipeline.svg](./assets/pipeline.svg).
+
+---
+
+<p align="center">
+  Developed by <b><a href="https://github.com/Paanicc">Panagiotis Christodoulou</a></b>
+</p>
+
